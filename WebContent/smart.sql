@@ -1,0 +1,4 @@
+use smart;
+show databases;
+show tables;
+select * from employee;

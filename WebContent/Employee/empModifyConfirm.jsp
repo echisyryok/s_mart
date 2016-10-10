@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>직원 등록 완료</title>
+<title>직원 수정 완료</title>
 </head>
 <body>
 <c:if test="${result>0 }">

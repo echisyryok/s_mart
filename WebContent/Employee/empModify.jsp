@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>직원 등록 창</title>
+<title>직원 수정 창</title>
 <script type="text/javascript">
 function chkemp() {
 	if (frm.epass.value != frm.epass2.value){

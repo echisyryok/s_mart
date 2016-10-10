@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+caption, tr { background-color:  #5B0000; color: white;}
+
+
+table { border-collapse: collapse; width:400px;}
+td { padding:10px;} 

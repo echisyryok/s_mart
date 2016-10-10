@@ -5,7 +5,7 @@ public class Employee {
 	private String epass;
 	private String ename;
 	private int sal;
-	private int deno;
+	private int dno;
 	private int ecarr;
 	private int rank;
 	public int getEmpno() {
@@ -32,11 +32,11 @@ public class Employee {
 	public void setSal(int sal) {
 		this.sal = sal;
 	}
-	public int getDeno() {
-		return deno;
+	public int getDno() {
+		return dno;
 	}
-	public void setDeno(int deno) {
-		this.deno = deno;
+	public void setDno(int dno) {
+		this.dno = dno;
 	}
 	public int getEcarr() {
 		return ecarr;

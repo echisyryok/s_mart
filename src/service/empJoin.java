@@ -9,7 +9,7 @@ import dao.Department;
 import dao.Employee;
 import dao.EmployeeDao;
 
-public class empJoin implements CommandProcess {
+public class EmpJoin implements CommandProcess {
 
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {

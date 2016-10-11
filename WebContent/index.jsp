@@ -8,8 +8,9 @@
 </head>
 <body>
 <script type="text/javascript">
-	// location.href="main.do"
-	location.href="Employee.empData.do"
+	location.href="Main.main.do"
+	//location.href="Customer.CusData.do"
+	//location.href="Employee.EmpData.do"
 </script>
 </body>	
 </html>

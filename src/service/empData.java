@@ -10,7 +10,7 @@ import dao.Employee;
 import dao.EmployeeDao;
 
 
-public class empData implements CommandProcess {
+public class EmpData implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		/*String pageNum = request.getParameter("pageNum");

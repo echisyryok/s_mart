@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Employee;
 import dao.EmployeeDao;
 
-public class empDel implements CommandProcess {
+public class EmpDel implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		

@@ -7,17 +7,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Customer;
 import dao.CustomerDao;
-import dao.Employee;
-import dao.EmployeeDao;
 
-public class cusData implements CommandProcess {
+public class CusData implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("1");
 		CustomerDao cusDao = CustomerDao.getInstance();
 		//List<Employee> list = empDao.select(startRow, endRow);
 		List<Customer> list = cusDao.select();
 		request.setAttribute("list", list);
-		return "Customer/cusData.jsp";
+		System.out.println("2");
+		return "Customer/CusData.jsp";
 	}
 
 }

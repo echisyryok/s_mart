@@ -24,7 +24,7 @@
 <c:forEach var="emp" items="${list}">
 <input type="hidden" name="${emp.epass}">
 <tr>
-<td>${emp.empno}</td><td><a href="Employee.empModify.do?empno=${emp.empno}">${emp.ename}</a></td>
+<td>${emp.empno}</td><td><a href="Employee.EmpModify.do?empno=${emp.empno}">${emp.ename}</a></td>
 <td>${emp.sal}</td>
 <td>${emp.dno}</td>
 <td>${emp.ecarr}</td><td>${emp.rank}</td>
@@ -38,7 +38,7 @@
 <c:forEach begin="1" end="60">&nbsp;</c:forEach>
 </td>
 <td>
-<input type="button" value="등록하기" onclick="location.href='Employee.empJoin.do'"></td>
+<input type="button" value="등록하기" onclick="location.href='Employee.EmpJoin.do'"></td>
 </tr>
 </table>
 </form>

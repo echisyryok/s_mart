@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Customer;
 import dao.CustomerDao;
 
-public class cusJoin implements CommandProcess {
+public class CusJoin implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
@@ -52,7 +52,7 @@ public class cusJoin implements CommandProcess {
 		CustomerDao cusDao = CustomerDao.getInstance();
 		cusDao.joinMember(cusDto);
 		System.out.println("3");
-		return "Customer/cusData.jsp";
+		return "Customer/CusData.jsp";
 	}
 
 }

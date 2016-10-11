@@ -24,7 +24,7 @@ function empnochk() {
 		frm.empno.focus();
 		return false;
 	}
-	window.open("Employee.empnoChk.do?empno="+frm.empno.value,"","width='200'","height='200'");
+	window.open("Employee.EmpnoChk.do?empno="+frm.empno.value,"","width='200'","height='200'");
 	
 	
 }
@@ -33,7 +33,8 @@ function empnochk() {
 <link rel="stylesheet" type="text/css" href="form_comm.css">
 </head>
 <body>
-<form action="Employee.empJoinConfirm.do" method="post" name="frm" onsubmit="return chkemp()">
+
+<form action="Employee.EmpJoinConfirm.do" method="post" name="frm" onsubmit="return chkemp()">
 <table>
 <caption>　</caption>
 <tr>
@@ -113,7 +114,7 @@ function empnochk() {
 <td>　　　　</td>
 <td>　　　　</td>
 <td><input type="submit" value="확인" onclick="chkemp()"></td>
-<td><input type="button" value="취소" onclick="location.href='Employee.empData.do'"></td>
+<td><input type="button" value="취소" onclick="location.href='Employee.EmpData.do'"></td>
 <td>　　　　</td>
 </tr>
 <tr>

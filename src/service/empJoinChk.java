@@ -10,7 +10,7 @@ import dao.Department;
 import dao.Employee;
 import dao.EmployeeDao;
 
-public class empJoinChk implements CommandProcess {
+public class EmpJoinChk implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		try {

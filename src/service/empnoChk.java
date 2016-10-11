@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.EmployeeDao;
 
-public class empnoChk implements CommandProcess {
+public class EmpnoChk implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		int empno= Integer.parseInt(request.getParameter("empno"));

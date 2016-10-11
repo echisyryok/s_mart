@@ -11,7 +11,7 @@
 <c:if test="${result>0 }">
 <script type="text/javascript">
 alert("직원 수정이 정상적으로 완료 되었습니다.");
-location.href="Employee.empData.do";
+location.href="Employee.EmpData.do";
 </script>
 </c:if>
 <c:if test="${result eq 0 }">

@@ -48,7 +48,7 @@ public class CustomerDao {
     	Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-        String sql="INSERT INTO CUSTOMER VALUES (select max(cno)+1 from customer,?,?,?,?,?,?,?,?)"; 
+        String sql="insert into customer (cid,cpass,cname,caddr,cbir,cphn,cdel,cmail,cjoin) VALUES(?,?,?,?,?,?,?,?,sysdate())"; 
         int result=0; 
          
         try{ 
@@ -87,7 +87,49 @@ public class CustomerDao {
          
         return false; 
     } 
+    //회원 정보 수정
+    public boolean modify(Customer customer){
+    	Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+        String sql="update customer set cpass=?,caddr=?,cphn=?,cdel=?,cmail=? where cid=?"; 
+        int result=0; 
+         
+        try{ 
 
+        	/*
+        	1private String cpass;
+        	2private String caddr;
+        	3private String cphn;
+        	4private String cdel;
+        	5private String cmail;
+        	6private String cid;
+        	*/
+        	conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setString(1, customer.getCpass()); 
+            pstmt.setString(2, customer.getCaddr()); 
+            pstmt.setString(3, customer.getCphn());
+            pstmt.setString(4, customer.getCdel()); 
+            pstmt.setString(5, customer.getCmail()); 
+            pstmt.setString(6, customer.getCid()); 
+            
+            result=pstmt.executeUpdate(); 
+             
+            if(result!=0){ 
+                return true; 
+            } 
+        }catch(Exception ex){ 
+            System.out.println("joinMember 에러: " + ex);             
+        }finally{ 
+            if(rs!=null) try{rs.close();}catch(SQLException ex){} 
+            if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){} 
+        } 
+         
+        return false; 
+    }
+    //회원 목록 보기
 	public List<Customer> select() {
 		List<Customer> list = new ArrayList<>();
 		Connection conn = null;
@@ -132,5 +174,53 @@ public class CustomerDao {
 			}
 		}
 		return list;
+	}
+	//회원 상세 정보
+	public Customer getMember(String pcno) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Customer cus = new Customer();
+		int cno = Integer.parseInt(pcno);
+		
+		String sql = "select * from customer where cno = ?";	
+			try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cus.setCno(rs.getInt("cno"));
+				cus.setCid(rs.getString("cid"));
+				cus.setCpass(rs.getString("cpass"));
+				cus.setCname(rs.getString("cname"));
+				cus.setCaddr(rs.getString("caddr"));
+				cus.setCbir(rs.getDate("cbir"));
+				cus.setCphn(rs.getString("cphn"));
+				cus.setCdel(rs.getString("cdel"));
+				cus.setCmail(rs.getString("cmail"));
+				cus.setCjoin(rs.getDate("cjoin"));
+				cus.setCout(rs.getDate("cout"));
+				cus.setOutchk(rs.getString("outchk"));
+				cus.setCgrd(rs.getInt("cgrd"));
+				cus.setCmil(rs.getInt("cmil"));
+				cus.setCmils(rs.getInt("cmils"));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+			return cus;
+		
 	}
 }

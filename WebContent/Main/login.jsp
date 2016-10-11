@@ -16,7 +16,8 @@
 <tr>
 <th>아이디</th>
 <td><input type="text" name="id" required="required"></td>
-<td rowspan="2"><input type="submit" value="접속"></td>
+<td rowspan="2"><input type="submit" value="　접속　"><p>
+<input type="button" value="회원가입" onclick="location.href='Customer.cusJoin.do'"></td>
 </tr>
 <tr>
 <th>암호</th>

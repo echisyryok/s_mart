@@ -23,7 +23,7 @@ function chkemp() {
 <link rel="stylesheet" type="text/css" href="form_comm.css">
 </head>
 <body>
-<form action="Employee.empModifyConfirm.do" method="post" name="frm" onsubmit="return chkemp()">
+<form action="Employee.EmpModifyConfirm.do" method="post" name="frm" onsubmit="return chkemp()">
 <table>
 <caption>　</caption>
 <tr>
@@ -122,9 +122,9 @@ function chkemp() {
 </tr>
 <tr>
 <td>　　　　</td>
-<td><input type="button" value="삭제" onclick="location.href='Employee.empDel.do?empno=${emp.empno}'"></td>
+<td><input type="button" value="삭제" onclick="location.href='Employee.EmpDel.do?empno=${emp.empno}'"></td>
 <td><input type="submit" value="수정" onclick="chkemp()"></td>
-<td><input type="button" value="취소" onclick="location.href='Employee.empData.do'"></td>
+<td><input type="button" value="취소" onclick="location.href='Employee.EmpData.do'"></td>
 <td>　　　　</td>
 </tr>
 <tr>

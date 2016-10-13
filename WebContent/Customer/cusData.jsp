@@ -51,7 +51,7 @@ function checkfield(){
 </c:forEach>
 <tr>
 <td><input type="hidden" id="cid" name="cid"></td>
-<td><input type="button" value="삭제하기"></td>
+<td><input type="button" value="삭제하기" onclick="location.href='Customer.CusDelete.do'"></td>
 <td><input type="submit" value="수정하기" ></td>
 </tr>
 </table>

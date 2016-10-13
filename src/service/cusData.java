@@ -17,7 +17,7 @@ public class CusData implements CommandProcess {
 		List<Customer> list = cusDao.select();
 		request.setAttribute("list", list);
 		System.out.println("2");
-		return "Customer/CusData.jsp";
+		return "Customer/cusData.jsp";
 	}
 
 }

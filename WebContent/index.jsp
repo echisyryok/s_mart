@@ -8,6 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
+	//location.href="test.do"
 	location.href="Main.main.do"
 	//location.href="Customer.CusData.do"
 	//location.href="Employee.EmpData.do"

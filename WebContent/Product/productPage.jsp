@@ -12,16 +12,28 @@
 <table border="1">
 <caption>${pro.pname}</caption>
 <tr>
-<td colspan="2"><img alt="" src="${pro.pic}"height="200px"></td>
+
+<td colspan="2"><input type="hidden" name="pno" value="${pro.pno}">
+<img alt="" src="${pro.pic}"height="200px"></td>
 <td>
 
 <table border="1">
 <caption>구매 정보</caption>
-<tr><td>관리자 : </td><td colspan="2">수정 삭제</td></tr>
+<c:if test="${chk eq 'e'}">
+<tr><td>관리자 : </td>
+
+<td colspan="2">수정 삭제</td>
+</tr>
+</c:if>
 <tr><td colspan="3"><br><br>가격 : ${pro.price}</td></tr>
 <tr><td colspan="3">좋아요 : ${pro.pre}<br>
 싫어요 : ${pro.pco}</td></tr>
-<tr><td>카트에 넣기</td><td>찜 하기</td><td>바로 구매</td></tr>
+<c:if test="${chk eq 'c'}">
+<tr><td><a href="Cart.CartForm.do?pno=${pro.pno}">카트에 넣기</a></td><td>찜 하기</td><td>바로 구매</td></tr>
+</c:if>
+<c:if test="${chk eq 'e'}">
+<tr><td colspan="3">재고 수량 : ${pro.psto}</td></tr>
+</c:if>
 </table>
 
 </td>
@@ -36,5 +48,12 @@
 </td>
 </tr>
 </table>
+
+<table>
+
+
+
+</table>
+
 </body>
 </html>

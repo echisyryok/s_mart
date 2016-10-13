@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Department;
 import dao.Employee;
@@ -13,6 +14,7 @@ public class EmpModify implements CommandProcess {
 
 	
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+	
 		int empno = Integer.parseInt(request.getParameter("empno"));
 		EmployeeDao empDao = EmployeeDao.getInstance();
 		Employee emp = empDao.empselect(empno);

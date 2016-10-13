@@ -1,12 +1,10 @@
 package service;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Department;
 import dao.Employee;
 import dao.EmployeeDao;
 

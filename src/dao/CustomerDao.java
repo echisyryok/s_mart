@@ -136,7 +136,7 @@ public class CustomerDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from customer order by cno";	
+		String sql = "select * from customer where outchk='n' order by cno";	
 			try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -175,20 +175,23 @@ public class CustomerDao {
 		}
 		return list;
 	}
+	
+
+	
 	//회원 상세 정보
-	public Customer getMember(String pcno) {
+	public Customer getMember(String id) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Customer cus = new Customer();
-		int cno = Integer.parseInt(pcno);
+		int cid = Integer.parseInt(id);
 		
-		String sql = "select * from customer where cno = ?";	
+		String sql = "select * from customer where cid = ?";	
 			try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cno);
+			pstmt.setInt(1, cid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				cus.setCno(rs.getInt("cno"));
@@ -223,4 +226,71 @@ public class CustomerDao {
 			return cus;
 		
 	}
+	public boolean mDelete(int cno){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+        String sql="update customer set outchk='y' where cno=?"; 
+        int result=0; 
+         
+        try{ 
+
+        	conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+            
+            pstmt.setInt(1, cno); 
+            
+            result=pstmt.executeUpdate(); 
+             
+            if(result!=0){ 
+                return true; 
+            } 
+        }catch(Exception ex){ 
+            System.out.println("mDelete 에러: " + ex);             
+        }finally{ 
+            if(rs!=null) try{rs.close();}catch(SQLException ex){} 
+            if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){} 
+        } 
+         
+        return false;
+	}
+public int idCheck(String id, String pass) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select cpass from Customer where cid = ?";
+		
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String cpass = rs.getString("cpass");
+				if (cpass.equals(pass))
+					result = 1; // 일치
+				else
+					result = 0; // pass가 다름
+			} else
+				result = -1; // id가 없음
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return result;
+	}
+
 }

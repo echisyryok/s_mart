@@ -68,7 +68,47 @@ public class EmployeeDao {
 		}
 		return list;
 	}
+		
+	public List<Employee> selectList() {
+		List<Employee> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
 	
+		String sql = "select * from Employee";	
+				try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Employee emp = new Employee();
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEpass(rs.getString("epass"));
+				emp.setEname(rs.getString("ename"));
+				emp.setSal(rs.getInt("sal"));
+				emp.setDno(rs.getInt("dno"));
+				emp.setEcarr(rs.getInt("ecarr"));
+				emp.setRank(rs.getInt("rank"));
+				
+				list.add(emp);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return list;
+	}
 	public int total() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -363,6 +403,48 @@ public class EmployeeDao {
 		}
 		return result;
 	}
+	public int idCheck(String id, String pass) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select epass from Employee where empno = ?";
+		System.out.println("empDad id : "+id);
+		System.out.println("empDad pass : "+pass);
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String epass = rs.getString("epass");
+				System.out.println("empDao epass : "+epass );
+				if (epass.equals(pass))
+					result = 1; // 일치
+				else
+					result = 0; // pass가 다름
+			} else
+				result = -1; // id가 없음
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return result;
+		
+	}
+	
 	
 	
 	

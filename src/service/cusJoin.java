@@ -3,8 +3,7 @@ package service;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +13,7 @@ import dao.CustomerDao;
 public class CusJoin implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("1");
 		// TODO Auto-generated method stub
 		try {
 			request.setCharacterEncoding("utf-8");
@@ -21,7 +21,7 @@ public class CusJoin implements CommandProcess {
 				e.printStackTrace();
 		}
 		Customer cusDto = new Customer();
-		System.out.println("1");
+		
 		/*
     	1private String cid;
     	2private String cpass;
@@ -37,14 +37,16 @@ public class CusJoin implements CommandProcess {
 		cusDto.setCname(request.getParameter("cname"));
 		cusDto.setCaddr(request.getParameter("caddr"));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
-		 Date date = null;
+		 
+		 java.util.Date uDate =null;
 		 try {
-		 date = sdf.parse(request.getParameter("year")+"/"+request.getParameter("month")+"/"+request.getParameter("day"));
+		 uDate = sdf.parse(request.getParameter("year")+"/"+request.getParameter("month")+"/"+request.getParameter("day"));
 		 //입력받은 년,월,일을 date 포맷으로 변경
 		 } catch (ParseException e) {
 		 e.printStackTrace();
 		 }
-		cusDto.setCbir((java.sql.Date) date);
+		 Date date = new Date(uDate.getTime());
+		cusDto.setCbir(date);
 		cusDto.setCphn(request.getParameter("cphn"));
 		cusDto.setCdel(request.getParameter("cdel"));
 		cusDto.setCmail(request.getParameter("cmail"));
@@ -52,7 +54,7 @@ public class CusJoin implements CommandProcess {
 		CustomerDao cusDao = CustomerDao.getInstance();
 		cusDao.joinMember(cusDto);
 		System.out.println("3");
-		return "Customer/CusData.jsp";
+		return "Customer.CusData.do";
 	}
 
 }

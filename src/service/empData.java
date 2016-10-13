@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import dao.Employee;
 import dao.EmployeeDao;
@@ -13,6 +13,8 @@ import dao.EmployeeDao;
 public class EmpData implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		
+				
 		/*String pageNum = request.getParameter("pageNum");
 		if (pageNum == null || pageNum.equals("")) 
 			pageNum = "1";

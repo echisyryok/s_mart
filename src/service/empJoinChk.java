@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Department;
 import dao.Employee;
@@ -13,6 +14,7 @@ import dao.EmployeeDao;
 public class EmpJoinChk implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {

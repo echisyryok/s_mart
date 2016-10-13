@@ -1,9 +1,8 @@
 @CHARSET "UTF-8";
 table { width: 100%; border: 1px thick; }
 caption { background-color: #7CB7FF; }
-tr:hover { background-color: skyblue;}
 
 
-td:hover { background-color: white; }
+
 table { border-collapse: collapse; width:600px; border-color: gray; background-color: white;}
 td { padding:10px;} 

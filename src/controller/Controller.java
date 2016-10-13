@@ -64,10 +64,13 @@ public class Controller extends HttpServlet {
 	    // request.getContextPath() : /ch15
 		      command = command.substring(
 		    		 request.getContextPath().length()+1);
+		      System.out.println("command : "+command);
 		// command : message.do
-	          com = (CommandProcess)commandMap.get(command); 
+	          com = (CommandProcess)commandMap.get(command);
+	          System.out.println("com : "+com);
 	    // com : service.Message의 객체
 	          view = com.requestPro(request, response);
+	          System.out.println("view : "+view);
 	    // view : message.jsp
 	    } catch(Throwable e) { throw new ServletException(e); } 
 	    RequestDispatcher dispatcher =

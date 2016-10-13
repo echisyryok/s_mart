@@ -46,15 +46,7 @@ function checkfield(){
  return false;
  }
  
- alert(document.frm.cid.value);
- alert(document.frm.cpass.value);
- alert(document.frm.cname.value);
- alert(document.frm.caddr.value);
- alert(document.frm.cphn.value);
- alert(document.frm.cmail.value);
- alert(document.frm.cdel.value);
- alert(document.frm.year.value+"년 "+document.frm.month.value+"월 "+document.frm.day.value+"일");
- 
+
  
  if(document.frm.cpass.value!=document.frm.cpass2.value){
  //비밀번호와 비밀번호확인의 값이 다를 경우
@@ -62,6 +54,7 @@ function checkfield(){
  alert("입력한 2개의 비밀번호가 일치하지 않습니다.");
  document.frm.cpass.focus();
  return false;
+ 
  
  }
  
@@ -75,6 +68,7 @@ function checkfield(){
  document.frm.cmail.focus();
  return false;
  }
+ alert("회원 가입에 성공하였습니다!!")
 }
 </script>
 </head>
@@ -82,7 +76,7 @@ function checkfield(){
 
 <div align="center">
 <h1> 회원가입</h1>
-<form action="Customer.cusJoin.do" name="frm" method="post" onsubmit="return checkfield()">
+<form action="Main.main.do" name="frm" method="post" onsubmit="return checkfield()">
 <table style="text-align: left">
 <tr>
 <td>아이디</td><td ><input type="text" name="cid" id="cid" required="required">
@@ -111,7 +105,7 @@ function checkfield(){
 <td>배달시간</td><td><select name="cdel">
 <option value="11:00">11:00</option>
 <option value="15:00">15:00</option>
-<option value="19:00">19:00</option>
+<option value="19:00" selected="selected">19:00</option>
 </select>
 </td>
 <tr>
@@ -136,12 +130,11 @@ function checkfield(){
 </td>
 </tr>
 </table>
- 
- 
+
 <br>
 <table>
 <tr><td style="text-align: center">
-<input type="submit" value="가입" onclick="checkfield()">
+<input type="submit" value="가입">
 <input type="reset" value="취소">
 </td>
 </tr>

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<decorators defaultdir="/decorator">
-	<decorator name="main" page="hello_decorator.jsp">
-		<pattern>/hello.jsp</pattern>
-		<pattern>/hello/*</pattern>
+<decorators defaultdir="/Main">
+	<!-- <decorator name="header" page="login.jsp"> -->
+	<decorator name="header" page="headerHome.jsp">
+		<pattern>/Main/main.jsp</pattern>
+		<pattern>*</pattern>
+		
+		<excludes>
+		<pattern>*.do</pattern>
+		</excludes>
+		<!-- <excludes>
+		<pattern>/Login/login.jsp</pattern>
+		</excludes> -->
+
 	</decorator>
-	<decorator name="news" page="/decorator2/news_decorator.jsp">
-		<pattern>/news/*</pattern>
-	</decorator>
-	<excludes>
-		<pattern>/hello/exclude.jsp</pattern>
-		<pattern>/news/exclude.jsp</pattern>
-	</excludes>
+	
 </decorators>

@@ -101,7 +101,7 @@ function checkfield(){
 <br>
 <table>
 <tr><td style="text-align: center">
-<input type="hidden" name="cid" value="${cid }">
+<input type="hidden" name="cno" value="${cno}">
 <input type="submit" value="수정">
 <input type="button" value="취소" onClick="history.back();">
 </td>
